@@ -1,0 +1,25 @@
+import {StyleSheet} from 'react-native';
+
+export const styles = StyleSheet.create({
+  container: {
+    height: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '90%',
+    alignSelf: 'center',
+  },
+  header: {
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  imageView: {
+    borderWidth: 0.1,
+    padding: 8,
+    borderRadius: 50,
+  },
+  image: {
+    width: 18,
+    height: 18,
+  },
+});

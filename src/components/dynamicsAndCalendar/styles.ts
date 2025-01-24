@@ -1,0 +1,70 @@
+import {StyleSheet} from 'react-native';
+
+export const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    width: '100%',
+    alignSelf: 'center',
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 20,
+  },
+  chartsView: {
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  dynamicAndCalendarView: {
+    borderWidth: 1,
+    borderColor: '#ededed',
+    borderRadius: 15,
+    width: '48%',
+    padding: 10,
+  },
+  image: {
+    width: 145,
+    height: 75,
+    borderRadius: 15,
+  },
+  text: {
+    marginLeft: 6,
+    fontWeight: 'bold',
+    marginTop: -5,
+  },
+  calendarNumbersView: {
+    flexDirection: 'row',
+    padding: 0,
+    alignItems: 'center',
+    paddingBottom: 15,
+  },
+  calendarNumberGreen: {
+    paddingVertical: 8,
+    paddingHorizontal: 13,
+    marginRight: 5,
+    marginVertical: 10,
+    borderRadius: 150,
+    backgroundColor: '#01b73b',
+    color: 'white',
+  },
+  calendarNumberRed: {
+    paddingVertical: 8,
+    paddingHorizontal: 13,
+    marginRight: 5,
+    marginVertical: 10,
+    borderRadius: 150,
+    backgroundColor: '#fc4845',
+    color: 'white',
+  },
+  calendarDots: {
+    paddingVertical: 8,
+    paddingHorizontal: 13,
+    marginRight: 5,
+    marginVertical: 10,
+    borderRadius: 150,
+    backgroundColor: '#f4f4f4',
+    color: '#959595',
+    fontWeight: 'bold',
+  },
+});
