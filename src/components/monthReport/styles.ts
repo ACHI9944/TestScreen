@@ -9,7 +9,6 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 15,
   },
   chartWithText: {
     flexDirection: 'row',
@@ -17,13 +16,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  imageView: {
-    marginRight: 10,
-    borderWidth: 1,
-    borderColor: '#ededed',
-    padding: 8,
-    borderRadius: 50,
-  },
   image: {
     width: 18,
     height: 18,

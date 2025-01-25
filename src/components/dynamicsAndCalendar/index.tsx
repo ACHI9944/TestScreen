@@ -1,23 +1,30 @@
-import {Image, Text, View} from 'react-native';
+import React from 'react';
+import {Text, View} from 'react-native';
 import {styles} from './styles';
+import DynamicsChart from '../dynamycsChart';
 
 const DynamicsAndCalendar = () => {
   return (
     <View style={styles.container}>
       <View style={styles.chartsView}>
         <View style={styles.dynamicAndCalendarView}>
-          <Image
-            source={require('../../assets/Capture.jpg')}
-            style={styles.image}
-          />
+          <DynamicsChart />
           <Text style={styles.text}>დინამიკა</Text>
         </View>
         <View style={styles.dynamicAndCalendarView}>
           <View style={styles.calendarNumbersView}>
-            <Text style={styles.calendarNumberGreen}>3</Text>
-            <Text style={styles.calendarNumberGreen}>4</Text>
-            <Text style={styles.calendarNumberRed}>5</Text>
-            <Text style={styles.calendarDots}>...</Text>
+            <View style={styles.calendarNumberGreen}>
+              <Text style={styles.numbers}>3</Text>
+            </View>
+            <View style={styles.calendarNumberGreen}>
+              <Text style={styles.numbers}>4</Text>
+            </View>
+            <View style={styles.calendarNumberRed}>
+              <Text style={styles.numbers}>5</Text>
+            </View>
+            <View style={styles.calendarDots}>
+              <Text style={styles.dots}>...</Text>
+            </View>
           </View>
           <Text style={styles.text}>კალენდარი</Text>
         </View>

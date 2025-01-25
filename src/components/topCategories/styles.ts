@@ -8,18 +8,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 20,
     marginVertical: 5,
   },
-  headers: {
-    width: '90%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingBottom: 22,
-  },
-  categoriesHeader: {
-    fontWeight: 'bold',
-  },
-  calendarHeader: {
-    color: '#6e6e6e',
-  },
+
   chartAndNumbers: {
     flexDirection: 'row',
     justifyContent: 'space-between',

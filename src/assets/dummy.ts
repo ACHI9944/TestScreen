@@ -1,8 +1,8 @@
 export const DummyExpenses = [
-  {value: 430, color: '#bc438a'},
-  {value: 123, color: '#00c0b3'},
-  {value: 185, color: '#fec100'},
-  {value: 321, color: '#00b0f8'},
+  {value: 430, color: '#bc438a', category: 'საბანკო ოპერაციები'},
+  {value: 123, color: '#00c0b3', category: 'გადასახადები და კომუნალურები'},
+  {value: 185, color: '#fec100', category: 'კვება'},
+  {value: 321, color: '#00b0f8', category: 'საყიდლები'},
 ];
 
 export const DummyIncomeList = [
@@ -27,14 +27,14 @@ export const DummyExpensesList = [
     category: 'კვება',
     value: -100,
     id: 3,
-    date: '10 სექ, 2024, 12:20PM',
+    date: '8 სექ, 2024, 12:20PM',
   },
   {
     name: 'მანქანის დაზღვევა',
     category: 'ფინანსები',
     value: -500,
     id: 4,
-    date: '10 სექ, 2024, 12:20PM',
+    date: '9 სექ, 2024, 12:20PM',
   },
 ];
 

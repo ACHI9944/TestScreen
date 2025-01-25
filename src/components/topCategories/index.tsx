@@ -1,25 +1,22 @@
-import {Text, View} from 'react-native';
+import React from 'react';
+import {Text, useWindowDimensions, View} from 'react-native';
 import {styles} from './styles';
 import PieChart from 'react-native-pie-chart';
 import CategoryWithAmount from '../categoryWithAmount';
 import {DummyExpenses} from '../../assets/dummy';
-import {lastMonthDate, todayDate} from '../../util/DateCalculator';
+import HeaderWithCalendar from '../headerWithCalendar';
 
 const TopCategories = () => {
-  const widthAndHeight = 145;
+  const {width} = useWindowDimensions();
+  const widthAndHeight = (width * 2) / 7;
 
-  const sumOfExpenses =
-    DummyExpenses[0].value +
-    DummyExpenses[1].value +
-    DummyExpenses[2].value +
-    DummyExpenses[3].value;
+  const sumOfExpenses = DummyExpenses.reduce(
+    (sum, item) => sum + item.value,
+    0,
+  );
   return (
     <View style={styles.container}>
-      <View style={styles.headers}>
-        <Text style={styles.categoriesHeader}>ტოპ კატეგორიები</Text>
-        <Text
-          style={styles.calendarHeader}>{`${lastMonthDate}-${todayDate}`}</Text>
-      </View>
+      <HeaderWithCalendar header={'ტოპ კატეგორიები'} />
       <View style={styles.chartAndNumbers}>
         <View style={styles.chartContainer}>
           <PieChart
@@ -34,26 +31,14 @@ const TopCategories = () => {
           </View>
         </View>
         <View style={styles.categoryAndAmounts}>
-          <CategoryWithAmount
-            amount={DummyExpenses[0].value}
-            category={'საბანკო ოპერაციები'}
-            bgColour={DummyExpenses[0].color}
-          />
-          <CategoryWithAmount
-            amount={DummyExpenses[1].value}
-            category={'გადასახადები და კომუნალურები'}
-            bgColour={DummyExpenses[1].color}
-          />
-          <CategoryWithAmount
-            amount={DummyExpenses[2].value}
-            category={'კვება'}
-            bgColour={DummyExpenses[2].color}
-          />
-          <CategoryWithAmount
-            amount={DummyExpenses[3].value}
-            category={'საყიდლები'}
-            bgColour={DummyExpenses[3].color}
-          />
+          {DummyExpenses.map((expense, index) => (
+            <CategoryWithAmount
+              key={index}
+              amount={expense.value}
+              category={expense.category}
+              bgColour={expense.color}
+            />
+          ))}
         </View>
       </View>
     </View>

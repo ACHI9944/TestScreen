@@ -1,11 +1,14 @@
-import {Image, Text, View} from 'react-native';
+import React from 'react';
+import {FlatList, Text, View} from 'react-native';
 import {styles} from './styles';
-import {lastMonthDate, todayDate} from '../../util/DateCalculator';
 import {
   DummyExpensesList,
   DummyIncomeList,
   getCategoryImage,
 } from '../../assets/dummy';
+import HeaderWithCalendar from '../headerWithCalendar';
+import {TransactionItem} from './types';
+import SingleExpense from '../singleExpense';
 
 const Transactions = () => {
   const totalIncome = DummyIncomeList.reduce(
@@ -18,13 +21,14 @@ const Transactions = () => {
   );
   const MergedTransactionsList = [...DummyIncomeList, ...DummyExpensesList];
 
+  const renderItem = ({item}: {item: TransactionItem}) => {
+    const categoryImage = getCategoryImage(item.category);
+    return <SingleExpense categoryImage={categoryImage} item={item} />;
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.headers}>
-        <Text style={styles.transactionsHeader}>ტრანზაქციები</Text>
-        <Text
-          style={styles.calendarHeader}>{`${lastMonthDate}-${todayDate}`}</Text>
-      </View>
+      <HeaderWithCalendar header={'ტრანზაქციები'} />
       <View style={styles.incomeAndExpenseView}>
         <View style={styles.incomeView}>
           <Text>შემოსავალი</Text>
@@ -36,36 +40,12 @@ const Transactions = () => {
         </View>
       </View>
 
-      <Text style={{width: '90%', fontWeight: 'bold', fontSize: 20}}>დღეს</Text>
-      {MergedTransactionsList.map(item => {
-        const categoryImage = getCategoryImage(item.category);
-        return (
-          <View key={item.id} style={styles.expensesView}>
-            <View style={styles.categoryIconView}>
-              <Image
-                source={{uri: categoryImage}}
-                style={styles.categoryIcon}
-              />
-            </View>
-            <View style={styles.expensesDataView}>
-              <View>
-                <Text style={styles.nameText}>{item.name}</Text>
-                <Text style={styles.categoryText}>{item.category}</Text>
-              </View>
-              <View>
-                <Text
-                  style={[
-                    styles.valueText,
-                    item.value > 0 ? {color: '#3d965b'} : null,
-                  ]}>
-                  {`${item.value}$`}
-                </Text>
-                <Text style={styles.dateText}>{item.date}</Text>
-              </View>
-            </View>
-          </View>
-        );
-      })}
+      <Text style={styles.header}>დღეს</Text>
+      <FlatList
+        data={MergedTransactionsList}
+        renderItem={renderItem}
+        keyExtractor={item => item.id.toString()}
+      />
     </View>
   );
 };

@@ -1,5 +1,7 @@
+import React from 'react';
 import {Image, Text, View} from 'react-native';
 import {styles} from './styles';
+import ImageIconComponent from '../imageIconComponent';
 const reportUri =
   'https://img.icons8.com/?size=100&id=NVXLSE3DVpdt&format=png&color=000000';
 const exitUri =
@@ -8,9 +10,7 @@ const MonthReport = () => {
   return (
     <View style={styles.container}>
       <View style={styles.chartWithText}>
-        <View style={styles.imageView}>
-          <Image source={{uri: reportUri}} style={styles.image} />
-        </View>
+        <ImageIconComponent imageuri={reportUri} />
         <View>
           <Text style={styles.text}>წინა თვის რეპორტი</Text>
           <View style={styles.numbersView}>

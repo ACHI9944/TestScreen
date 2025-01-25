@@ -7,17 +7,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 30,
   },
-  headers: {
-    flexDirection: 'row',
-    width: '90%',
-    justifyContent: 'space-between',
-  },
-  transactionsHeader: {
-    fontWeight: 'bold',
-  },
-  calendarHeader: {
-    color: '#6e6e6e',
-  },
   incomeAndExpenseView: {
     flexDirection: 'row',
     width: '90%',
@@ -46,19 +35,10 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
   },
-  expensesView: {
+  header: {
     width: '90%',
-    flexDirection: 'row',
-    marginVertical: 12,
-    alignItems: 'flex-start',
-  },
-  expensesDataView: {
-    flexDirection: 'row',
-    width: '90%',
-    justifyContent: 'space-between',
-    borderBottomWidth: 1,
-    borderBottomColor: '#f5f5f5',
-    paddingBottom: 12,
+    fontWeight: 'bold',
+    fontSize: 20,
   },
   categoryIconView: {
     marginRight: 10,
@@ -71,21 +51,5 @@ export const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: 15,
-  },
-  nameText: {
-    fontWeight: 'bold',
-  },
-  categoryText: {
-    fontSize: 12,
-  },
-  valueText: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    textAlign: 'right',
-  },
-  dateText: {
-    fontSize: 12,
-    textAlign: 'right',
-    color: '#6e6e6e',
   },
 });

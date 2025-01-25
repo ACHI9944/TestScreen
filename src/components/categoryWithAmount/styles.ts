@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
   categoryText: {
     fontSize: 12,
     color: '#828282',
-    marginRight: 38,
   },
   amountText: {
     fontWeight: 'bold',

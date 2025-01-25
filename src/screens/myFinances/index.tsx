@@ -1,5 +1,6 @@
+import React from 'react';
 import {useLayoutEffect} from 'react';
-import {ScrollView, View} from 'react-native';
+import {FlatList, ScrollView, View} from 'react-native';
 import MyFinancesHeader from '../../components/MyFinancesHeader';
 import {Props} from './types';
 import MonthReport from '../../components/monthReport';
@@ -16,14 +17,19 @@ const MyFinances: React.FC<Props> = ({navigation}) => {
       },
     });
   }, [navigation]);
+  const data = [
+    <MonthReport />,
+    <DynamicsAndCalendar />,
+    <TopCategories />,
+    <PlanMonthBudget />,
+    <Transactions />,
+  ];
   return (
-    <ScrollView>
-      <MonthReport />
-      <DynamicsAndCalendar />
-      <TopCategories />
-      <PlanMonthBudget />
-      <Transactions />
-    </ScrollView>
+    <FlatList
+      data={data}
+      keyExtractor={(item, index) => index.toString()} // Use index as a key
+      renderItem={({item}) => <View>{item}</View>} // Render each item as a View
+    />
   );
 };
 export default MyFinances;

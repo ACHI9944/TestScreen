@@ -1,5 +1,5 @@
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 import MainScreenHeader from '../components/MainScreenHeader';
 import MainScreen from '../screens/mainScreen';
 import MyFinances from '../screens/myFinances';

@@ -1,11 +1,13 @@
 import {StyleSheet} from 'react-native';
+import {Dimensions} from 'react-native';
+const screenWidth = Dimensions.get('window').width;
+const numberDimensions = (screenWidth * 43.2) / 100 / 5;
 
 export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: 'white',
     width: '100%',
-    alignSelf: 'center',
     marginTop: 20,
     alignItems: 'center',
     justifyContent: 'center',
@@ -22,49 +24,47 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     width: '48%',
     padding: 10,
-  },
-  image: {
-    width: 145,
-    height: 75,
-    borderRadius: 15,
+    justifyContent: 'space-between',
   },
   text: {
-    marginLeft: 6,
     fontWeight: 'bold',
-    marginTop: -5,
   },
+
   calendarNumbersView: {
     flexDirection: 'row',
-    padding: 0,
     alignItems: 'center',
-    paddingBottom: 15,
+    justifyContent: 'space-between',
   },
   calendarNumberGreen: {
-    paddingVertical: 8,
-    paddingHorizontal: 13,
-    marginRight: 5,
-    marginVertical: 10,
+    width: numberDimensions,
+    height: numberDimensions,
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 150,
     backgroundColor: '#01b73b',
-    color: 'white',
   },
   calendarNumberRed: {
-    paddingVertical: 8,
-    paddingHorizontal: 13,
-    marginRight: 5,
-    marginVertical: 10,
+    width: numberDimensions,
+    height: numberDimensions,
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 150,
     backgroundColor: '#fc4845',
-    color: 'white',
   },
   calendarDots: {
-    paddingVertical: 8,
-    paddingHorizontal: 13,
-    marginRight: 5,
-    marginVertical: 10,
+    width: numberDimensions,
+    height: numberDimensions,
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 150,
     backgroundColor: '#f4f4f4',
-    color: '#959595',
+
     fontWeight: 'bold',
+  },
+  numbers: {
+    color: 'white',
+  },
+  dots: {
+    color: '#959595',
   },
 });
