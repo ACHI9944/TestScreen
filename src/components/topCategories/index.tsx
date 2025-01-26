@@ -5,11 +5,12 @@ import PieChart from 'react-native-pie-chart';
 import CategoryWithAmount from '../categoryWithAmount';
 import {DummyExpenses} from '../../assets/dummy';
 import HeaderWithCalendar from '../headerWithCalendar';
+import {formatCategoryMoney} from '../../util/formatedNumber';
+import {CurrencyEnum} from '../../constants/CurrencyEnum';
 
 const TopCategories = () => {
   const {width} = useWindowDimensions();
   const widthAndHeight = width / 3.5;
-  const containerWidth = width / 1.75;
 
   const sumOfExpenses = DummyExpenses.reduce(
     (sum, item) => sum + item.value,
@@ -28,10 +29,12 @@ const TopCategories = () => {
           />
           <View style={styles.centeredTextContainer}>
             <Text style={styles.centeredText}>ხარჯი</Text>
-            <Text style={styles.centeredNumber}>{sumOfExpenses} ₾</Text>
+            <Text style={styles.centeredNumber}>
+              {formatCategoryMoney(+sumOfExpenses, CurrencyEnum.GEL)}
+            </Text>
           </View>
         </View>
-        <View style={[styles.categoryAndAmounts, {width: containerWidth}]}>
+        <View style={styles.categoryAndAmounts}>
           {DummyExpenses.map((expense, index) => (
             <CategoryWithAmount
               key={index}

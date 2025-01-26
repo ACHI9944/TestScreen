@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {SectionList, Text, View} from 'react-native';
+import {SectionList, SectionListData, Text, View} from 'react-native';
 import {styles} from './styles';
 import {
   DummyExpensesList,
@@ -9,31 +9,35 @@ import {
 import HeaderWithCalendar from '../headerWithCalendar';
 import {TransactionItem} from './types';
 import SingleExpense from '../singleExpense';
-import {formatedNumber} from '../../util/formatedNumber';
+import {formatMoney} from '../../util/formatedNumber';
+import {
+  groupTransactionsByDate,
+  sortTransactionsByDate,
+} from '../../util/sortDates';
+
+const totalIncome = DummyIncomeList.reduce((sum, item) => sum + item.value, 0);
+const totalExpenses = DummyExpensesList.reduce(
+  (sum, item) => sum + item.value,
+  0,
+);
+
+const mergedTransactionsList = [...DummyIncomeList, ...DummyExpensesList];
+
+const sortedTransactionsList = sortTransactionsByDate(mergedTransactionsList);
+
+const sections = groupTransactionsByDate(sortedTransactionsList);
 
 const Transactions = () => {
-  const totalIncome = DummyIncomeList.reduce(
-    (sum, item) => sum + item.value,
-    0,
-  );
-  const totalExpenses = DummyExpensesList.reduce(
-    (sum, item) => sum + item.value,
-    0,
-  );
-
-  const mergedTransactionsList = [...DummyIncomeList, ...DummyExpensesList];
-
-  const sections = [
-    {
-      title: 'დღეს',
-      data: mergedTransactionsList,
-    },
-  ];
-
   const renderItem = useCallback(({item}: {item: TransactionItem}) => {
     const categoryImage = getCategoryImage(item.category);
     return <SingleExpense categoryImage={categoryImage} item={item} />;
   }, []);
+  const renderSectionHeader = useCallback(
+    ({section}: {section: SectionListData<TransactionItem>}) => {
+      return <Text style={styles.header}>{section.title}</Text>;
+    },
+    [],
+  );
 
   return (
     <View style={styles.container}>
@@ -41,20 +45,18 @@ const Transactions = () => {
       <View style={styles.incomeAndExpenseView}>
         <View style={styles.incomeView}>
           <Text>შემოსავალი</Text>
-          <Text style={styles.incomeSum}>{formatedNumber(totalIncome)}</Text>
+          <Text style={styles.incomeSum}>{formatMoney(totalIncome)}</Text>
         </View>
         <View style={styles.expenseView}>
           <Text>ხარჯი</Text>
-          <Text style={styles.expenseSum}>{formatedNumber(totalExpenses)}</Text>
+          <Text style={styles.expenseSum}>{formatMoney(totalExpenses)}</Text>
         </View>
       </View>
       <SectionList
         sections={sections}
         renderItem={renderItem}
         keyExtractor={item => item.id.toString()}
-        renderSectionHeader={({section}) => (
-          <Text style={styles.header}>{section.title}</Text>
-        )}
+        renderSectionHeader={renderSectionHeader}
       />
     </View>
   );

@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   chartAndNumbers: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-
+    gap: 16,
   },
   chartContainer: {
     justifyContent: 'center',
@@ -29,6 +29,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   categoryAndAmounts: {
+    flex: 1,
     justifyContent: 'space-between',
   },
 });

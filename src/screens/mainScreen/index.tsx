@@ -8,10 +8,6 @@ const MainScreen = () => {
   const {navigate} = useNavigation<props>();
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <Text style={styles.header}>მთავარი გვერდი</Text>
-      </View>
-
       <Pressable style={styles.button} onPress={() => navigate('MyFinances')}>
         <Text style={styles.text}>Click To View Finances</Text>
       </Pressable>

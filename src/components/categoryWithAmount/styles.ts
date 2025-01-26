@@ -4,16 +4,15 @@ export const styles = StyleSheet.create({
   categoryWithAmount: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: '100%',
-
-    justifyContent: 'space-between',
   },
-  dotWithCategory: {
+  categoryAndAmount: {
+    flex: 1,
+    gap: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    width: '65%',
   },
   categoryText: {
+    flex: 1,
     fontSize: 12,
     color: '#828282',
   },

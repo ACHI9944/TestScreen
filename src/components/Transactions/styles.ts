@@ -7,13 +7,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 30,
     paddingHorizontal: 15,
-    
   },
   incomeAndExpenseView: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
-    marginVertical: 25,
+    marginVertical: 20,
   },
   incomeView: {
     padding: 20,

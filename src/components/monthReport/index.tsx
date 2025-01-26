@@ -6,6 +6,7 @@ const reportUri =
   'https://img.icons8.com/?size=100&id=NVXLSE3DVpdt&format=png&color=000000';
 const exitUri =
   'https://img.icons8.com/?size=100&id=95834&format=png&color=000000';
+  
 const MonthReport = () => {
   return (
     <View style={styles.bigContainer}>

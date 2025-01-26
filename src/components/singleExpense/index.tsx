@@ -3,6 +3,8 @@ import {Text, View} from 'react-native';
 import ImageIconComponent from '../imageIconComponent';
 import {styles} from './styles';
 import {SingleExpenseProps} from './types';
+import {formatTransactions} from '../../util/formatedNumber';
+import {CurrencyEnum} from '../../constants/CurrencyEnum';
 
 const SingleExpense = ({item, categoryImage}: SingleExpenseProps) => {
   return (
@@ -19,7 +21,7 @@ const SingleExpense = ({item, categoryImage}: SingleExpenseProps) => {
               styles.valueText,
               item.value > 0 ? {color: '#3d965b'} : null,
             ]}>
-            {`${item.value}$`}
+            {formatTransactions(item.value, CurrencyEnum.USD)}
           </Text>
           <Text style={styles.dateText}>{item.date}</Text>
         </View>

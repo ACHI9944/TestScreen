@@ -1,6 +1,5 @@
 import React, {useCallback} from 'react';
 import {FlatList, View} from 'react-native';
-import MyFinancesHeader from '../../components/MyFinancesHeader';
 import MonthReport from '../../components/monthReport';
 import DynamicsAndCalendar from '../../components/dynamicsAndCalendar';
 import TopCategories from '../../components/topCategories';
@@ -13,7 +12,6 @@ const MyFinances = () => {
   const renderItem = useCallback(() => {
     return (
       <View style={styles.container}>
-        <MyFinancesHeader />
         <MonthReport />
         <DynamicsAndCalendar />
         <TopCategories />

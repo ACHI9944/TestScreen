@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 10,
     alignItems: 'center',
+    gap: 15
   },
 
   image: {

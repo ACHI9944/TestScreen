@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 15,
+    backgroundColor: '#f6f6f6'
   },
   headerContainer: {
     marginVertical: 15,
