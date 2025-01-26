@@ -1,6 +1,6 @@
 export const DummyExpenses = [
   {value: 430, color: '#bc438a', category: 'საბანკო ოპერაციები'},
-  {value: 123, color: '#00c0b3', category: 'გადასახადები და კომუნალურები'},
+  {value: 1123, color: '#00c0b3', category: 'გადასახადები და კომუნალურები'},
   {value: 185, color: '#fec100', category: 'კვება'},
   {value: 321, color: '#00b0f8', category: 'საყიდლები'},
 ];

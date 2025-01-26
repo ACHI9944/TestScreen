@@ -3,8 +3,7 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    width: '100%',
-    alignItems: 'center',
+    paddingHorizontal: 15,
     paddingVertical: 20,
     marginVertical: 5,
   },
@@ -12,7 +11,7 @@ export const styles = StyleSheet.create({
   chartAndNumbers: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '90%',
+
   },
   chartContainer: {
     justifyContent: 'center',

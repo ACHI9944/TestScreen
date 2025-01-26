@@ -1,15 +1,18 @@
 import React from 'react';
-import {Text} from '@react-navigation/elements';
-import {Pressable, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import {styles} from './styles';
-import {Props} from './types';
+import {useNavigation} from '@react-navigation/native';
+import {props} from './types';
 
-const MainScreen: React.FC<Props> = ({navigation}) => {
+const MainScreen = () => {
+  const {navigate} = useNavigation<props>();
   return (
     <View style={styles.container}>
-      <Pressable
-        style={styles.button}
-        onPress={() => navigation.navigate('MyFinances')}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.header}>მთავარი გვერდი</Text>
+      </View>
+
+      <Pressable style={styles.button} onPress={() => navigate('MyFinances')}>
         <Text style={styles.text}>Click To View Finances</Text>
       </Pressable>
     </View>

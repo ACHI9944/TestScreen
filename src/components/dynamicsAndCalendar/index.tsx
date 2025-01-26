@@ -3,6 +3,7 @@ import {Text, View} from 'react-native';
 import {styles} from './styles';
 import DynamicsChart from '../dynamycsChart';
 
+const dates = [3, 4, 5, '...'];
 const DynamicsAndCalendar = () => {
   return (
     <View style={styles.container}>
@@ -13,18 +14,19 @@ const DynamicsAndCalendar = () => {
         </View>
         <View style={styles.dynamicAndCalendarView}>
           <View style={styles.calendarNumbersView}>
-            <View style={styles.calendarNumberGreen}>
-              <Text style={styles.numbers}>3</Text>
-            </View>
-            <View style={styles.calendarNumberGreen}>
-              <Text style={styles.numbers}>4</Text>
-            </View>
-            <View style={styles.calendarNumberRed}>
-              <Text style={styles.numbers}>5</Text>
-            </View>
-            <View style={styles.calendarDots}>
-              <Text style={styles.dots}>...</Text>
-            </View>
+            {dates.map((date, index) => (
+              <View
+                key={index}
+                style={[
+                  styles.calendarNumberGreen,
+                  index === 2 && styles.backgroundRed,
+                  index === 3 && styles.backgroundDots,
+                ]}>
+                <Text style={[styles.numbers, index === 3 && styles.dots]}>
+                  {date}
+                </Text>
+              </View>
+            ))}
           </View>
           <Text style={styles.text}>კალენდარი</Text>
         </View>

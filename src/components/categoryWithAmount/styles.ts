@@ -4,12 +4,14 @@ export const styles = StyleSheet.create({
   categoryWithAmount: {
     flexDirection: 'row',
     alignItems: 'center',
+    width: '100%',
+
     justifyContent: 'space-between',
   },
   dotWithCategory: {
-    justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
+    width: '65%',
   },
   categoryText: {
     fontSize: 12,

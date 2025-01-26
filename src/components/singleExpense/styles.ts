@@ -2,20 +2,19 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   expensesView: {
-    width: '90%',
+    width: '100%',
     flexDirection: 'row',
     marginVertical: 12,
     alignItems: 'flex-start',
     justifyContent: 'space-between',
   },
   expensesDataView: {
+    width: '85%',
     flexDirection: 'row',
-    width: '90%',
     justifyContent: 'space-between',
     borderBottomWidth: 1,
     borderBottomColor: '#f5f5f5',
     paddingBottom: 12,
-    marginLeft: 10,
   },
   nameText: {
     fontWeight: 'bold',

@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
+  bigContainer: {
+    paddingHorizontal: 15,
+  },
   container: {
-    width: '90%',
-    alignSelf: 'center',
     backgroundColor: 'white',
     padding: 10,
     borderRadius: 10,

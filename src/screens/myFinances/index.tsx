@@ -1,34 +1,32 @@
-import React from 'react';
-import {useLayoutEffect} from 'react';
-import {FlatList, ScrollView, View} from 'react-native';
+import React, {useCallback} from 'react';
+import {FlatList, View} from 'react-native';
 import MyFinancesHeader from '../../components/MyFinancesHeader';
-import {Props} from './types';
 import MonthReport from '../../components/monthReport';
 import DynamicsAndCalendar from '../../components/dynamicsAndCalendar';
 import TopCategories from '../../components/topCategories';
 import PlanMonthBudget from '../../components/PlanMonthBudget';
 import Transactions from '../../components/Transactions';
+import {styles} from './styles';
 
-const MyFinances: React.FC<Props> = ({navigation}) => {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      header: () => {
-        return <MyFinancesHeader />;
-      },
-    });
-  }, [navigation]);
-  const data = [
-    <MonthReport />,
-    <DynamicsAndCalendar />,
-    <TopCategories />,
-    <PlanMonthBudget />,
-    <Transactions />,
-  ];
+const MyFinances = () => {
+  const data = [''];
+  const renderItem = useCallback(() => {
+    return (
+      <View style={styles.container}>
+        <MyFinancesHeader />
+        <MonthReport />
+        <DynamicsAndCalendar />
+        <TopCategories />
+        <PlanMonthBudget />
+        <Transactions />
+      </View>
+    );
+  }, []);
   return (
     <FlatList
       data={data}
-      keyExtractor={(item, index) => index.toString()} // Use index as a key
-      renderItem={({item}) => <View>{item}</View>} // Render each item as a View
+      keyExtractor={(item, index) => index.toString()}
+      renderItem={renderItem}
     />
   );
 };

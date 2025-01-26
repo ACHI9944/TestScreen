@@ -3,20 +3,19 @@ import {View} from 'react-native';
 import {styles} from './style';
 
 const DynamicsChart = () => {
+  const charts = [28, 21, 12, 36, 32, 24, 32, 21, 12, 36, 32, 24];
+
   return (
     <View style={styles.dynamicsView}>
-      <View style={styles.greenChart1}></View>
-      <View style={styles.redChart1}></View>
-      <View style={styles.greenChart2}></View>
-      <View style={styles.redChart2}></View>
-      <View style={styles.greenChart3}></View>
-      <View style={styles.redChart3}></View>
-      <View style={styles.greenChart4}></View>
-      <View style={styles.redChart4}></View>
-      <View style={styles.greenChart5}></View>
-      <View style={styles.redChart5}></View>
-      <View style={styles.greenChart6}></View>
-      <View style={styles.redChart6}></View>
+      {charts.map((height, index) => (
+        <View
+          key={index}
+          style={[
+            styles.Chart,
+            {height: height},
+            index % 2 === 0 && {backgroundColor: '#1fa64a', marginRight: 2},
+          ]}></View>
+      ))}
     </View>
   );
 };

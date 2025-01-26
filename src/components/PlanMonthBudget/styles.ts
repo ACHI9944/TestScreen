@@ -3,17 +3,17 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   monthBudgetContainer: {
     flexDirection: 'row',
-    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
     paddingVertical: 30,
+    padding: 15,
   },
   allComponents: {
-    width: '90%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    width: '100%',
   },
   chartAndText: {
     flexDirection: 'row',

@@ -8,7 +8,8 @@ import HeaderWithCalendar from '../headerWithCalendar';
 
 const TopCategories = () => {
   const {width} = useWindowDimensions();
-  const widthAndHeight = (width * 2) / 7;
+  const widthAndHeight = width / 3.5;
+  const containerWidth = width / 1.75;
 
   const sumOfExpenses = DummyExpenses.reduce(
     (sum, item) => sum + item.value,
@@ -30,7 +31,7 @@ const TopCategories = () => {
             <Text style={styles.centeredNumber}>{sumOfExpenses} ₾</Text>
           </View>
         </View>
-        <View style={styles.categoryAndAmounts}>
+        <View style={[styles.categoryAndAmounts, {width: containerWidth}]}>
           {DummyExpenses.map((expense, index) => (
             <CategoryWithAmount
               key={index}

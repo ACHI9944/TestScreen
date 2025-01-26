@@ -7,10 +7,8 @@ const src2 =
   'https://img.icons8.com/?size=100&id=Su0viqkUpIfe&format=png&color=000000';
 
 const MyFinancesHeader = () => {
-  const navigation = useNavigation();
-  const goBack = () => {
-    navigation.goBack();
-  };
+  const {goBack} = useNavigation();
+
   return (
     <View style={styles.container}>
       <Pressable onPress={goBack}>

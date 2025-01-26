@@ -6,10 +6,12 @@ export const styles = StyleSheet.create({
     marginTop: 5,
     alignItems: 'center',
     paddingVertical: 30,
+    paddingHorizontal: 15,
+    
   },
   incomeAndExpenseView: {
     flexDirection: 'row',
-    width: '90%',
+    width: '100%',
     justifyContent: 'space-between',
     marginVertical: 25,
   },
@@ -36,20 +38,8 @@ export const styles = StyleSheet.create({
     fontSize: 17,
   },
   header: {
-    width: '90%',
+    width: '100%',
     fontWeight: 'bold',
     fontSize: 20,
-  },
-  categoryIconView: {
-    marginRight: 10,
-    borderWidth: 1,
-    borderColor: '#ededed',
-    padding: 8,
-    borderRadius: 50,
-  },
-  categoryIcon: {
-    width: 20,
-    height: 20,
-    borderRadius: 15,
   },
 });
