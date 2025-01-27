@@ -39,3 +39,8 @@ export const groupTransactionsByDate = (transactions: TransactionItem[]) => {
     data,
   }));
 };
+
+export function transformDate(inputDate: string): string {
+  const parsed = dayjs(inputDate, 'D MMM, YYYY, H:mm', 'ka');
+  return parsed.format('D MMM YYYY');
+}

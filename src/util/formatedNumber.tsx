@@ -29,3 +29,15 @@ export const formatTransactions = (
 
   return `${sign}${currency}${formattedNumber}`;
 };
+
+export const formatDetailedTransaction = (
+  amount: number,
+  currency: CurrencyEnum,
+): string => {
+  const absoluteValue = Math.abs(amount);
+  const formattedNumber = Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(absoluteValue);
+  return `${formattedNumber} ${currency}`;
+};

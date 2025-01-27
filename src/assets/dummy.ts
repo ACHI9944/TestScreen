@@ -12,7 +12,7 @@ export const DummyIncomeList: TransactionItem[] = [
     id: 1,
     name: 'პირადი გადარიცხვა',
     category: 'პირადი გადარიცხვა',
-    value: 500,
+    value: 5000,
     date: '27 იან, 2025, 00:20PM',
     type: 'შემოსავლები',
     senderName: 'ნიკა ჭეიშვილი',
