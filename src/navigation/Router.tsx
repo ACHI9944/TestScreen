@@ -4,6 +4,7 @@ import MainScreen from '../screens/mainScreen';
 import MyFinances from '../screens/myFinances';
 import {RootStackParamList} from './types';
 import ImageIconComponent from '../components/imageIconComponent';
+import SingleDetailedTransaction from '../screens/SingleDetailedTransaction';
 const src =
   'https://img.icons8.com/?size=100&id=Su0viqkUpIfe&format=png&color=000000';
 
@@ -14,6 +15,7 @@ const Router = () => {
       screenOptions={{
         headerTitleAlign: 'center',
         headerBackButtonDisplayMode: 'minimal',
+        headerTitleStyle: {fontSize: 15, fontWeight: 'bold'},
         headerStyle: {backgroundColor: '#f6f6f6'},
         headerShadowVisible: false,
       }}>
@@ -29,6 +31,11 @@ const Router = () => {
           headerTitle: 'ჩემი ფინანსები',
           headerRight: () => <ImageIconComponent imageuri={src} />,
         }}
+      />
+      <Stack.Screen
+        name="SingleDetailedTransaction"
+        component={SingleDetailedTransaction}
+        options={{headerTitle: 'ტრანზაქციის დეტალები'}}
       />
     </Stack.Navigator>
   );

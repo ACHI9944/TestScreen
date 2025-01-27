@@ -1,3 +1,6 @@
+import {RootStackParamList} from '../../navigation/types';
+import {NavigationProp} from '@react-navigation/native';
+
 export type TransactionItem = {
   id: string | number;
   name: string;
@@ -9,3 +12,5 @@ export type SingleExpenseProps = {
   item: TransactionItem;
   categoryImage: string;
 };
+
+export type props = NavigationProp<RootStackParamList>;

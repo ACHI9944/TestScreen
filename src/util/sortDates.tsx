@@ -24,6 +24,7 @@ export const groupTransactionsByDate = (transactions: TransactionItem[]) => {
       'D MMM, YYYY, h:mmA',
       'ka',
     ).format('D MMM, YYYY');
+
     const dateTitle = transactionDate === today ? 'დღეს' : transactionDate;
     if (!sections[dateTitle]) {
       sections[dateTitle] = [];
@@ -31,6 +32,7 @@ export const groupTransactionsByDate = (transactions: TransactionItem[]) => {
     sections[dateTitle].push(transaction);
     return sections;
   }, {} as Record<string, TransactionItem[]>);
+  console.log(grouped);
 
   return Object.entries(grouped).map(([title, data]) => ({
     title,

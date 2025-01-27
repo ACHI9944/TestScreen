@@ -1,14 +1,22 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import ImageIconComponent from '../imageIconComponent';
 import {styles} from './styles';
-import {SingleExpenseProps} from './types';
+import {props, SingleExpenseProps} from './types';
 import {formatTransactions} from '../../util/formatedNumber';
 import {CurrencyEnum} from '../../constants/CurrencyEnum';
+import {useNavigation} from '@react-navigation/native';
 
 const SingleExpense = ({item, categoryImage}: SingleExpenseProps) => {
+  const {navigate} = useNavigation<props>();
+  const pressHandle = () => {
+    navigate('SingleDetailedTransaction', {
+      id: item.id,
+    });
+  };
+
   return (
-    <View key={item.id} style={styles.expensesView}>
+    <Pressable onPress={pressHandle} key={item.id} style={styles.expensesView}>
       <ImageIconComponent imageuri={categoryImage} />
       <View style={styles.expensesDataView}>
         <View>
@@ -26,7 +34,7 @@ const SingleExpense = ({item, categoryImage}: SingleExpenseProps) => {
           <Text style={styles.dateText}>{item.date}</Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

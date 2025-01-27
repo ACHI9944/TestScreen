@@ -1,11 +1,7 @@
 import React, {useCallback} from 'react';
 import {SectionList, SectionListData, Text, View} from 'react-native';
 import {styles} from './styles';
-import {
-  DummyExpensesList,
-  DummyIncomeList,
-  getCategoryImage,
-} from '../../assets/dummy';
+import {DummyExpensesList, DummyIncomeList} from '../../assets/dummy';
 import HeaderWithCalendar from '../headerWithCalendar';
 import {TransactionItem} from './types';
 import SingleExpense from '../singleExpense';
@@ -14,6 +10,7 @@ import {
   groupTransactionsByDate,
   sortTransactionsByDate,
 } from '../../util/sortDates';
+import {getCategoryImage} from '../../util/ImagePicker';
 
 const totalIncome = DummyIncomeList.reduce((sum, item) => sum + item.value, 0);
 const totalExpenses = DummyExpensesList.reduce(
@@ -32,6 +29,7 @@ const Transactions = () => {
     const categoryImage = getCategoryImage(item.category);
     return <SingleExpense categoryImage={categoryImage} item={item} />;
   }, []);
+
   const renderSectionHeader = useCallback(
     ({section}: {section: SectionListData<TransactionItem>}) => {
       return <Text style={styles.header}>{section.title}</Text>;

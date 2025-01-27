@@ -14,6 +14,16 @@ export const DummyIncomeList: TransactionItem[] = [
     category: 'პირადი გადარიცხვა',
     value: 500,
     date: '27 იან, 2025, 00:20PM',
+    type: 'შემოსავლები',
+    senderName: 'ნიკა ჭეიშვილი',
+    senderAcc: 'GB142334162213317765',
+    senderBank: 'ტერაბანკი',
+    reciever: 'არჩილი ახვლედიანი',
+    recieverAcc: 'GB142334162213317765',
+    recieverBank: 'ტერაბანკი',
+    payType: 'ჩარიცხვა',
+    description: 'პირადი გადარიცხვა',
+    docNumber: '12344321321',
   },
   {
     name: 'ხელფასი',
@@ -21,6 +31,16 @@ export const DummyIncomeList: TransactionItem[] = [
     value: 2000,
     id: 2,
     date: '10 დეკ, 2024, 12:20PM',
+    type: 'შემოსავლები',
+    senderName: 'შპს ტერაბანკი',
+    senderAcc: 'GB142334162213317765',
+    senderBank: 'ტერაბანკი',
+    reciever: 'არჩილი ახვლედიანი',
+    recieverAcc: 'GB142334162213317765',
+    recieverBank: 'ტერაბანკი',
+    payType: 'ჩარიცხვა',
+    description: 'ხელფასი',
+    docNumber: '12344321321',
   },
 ];
 export const DummyExpensesList: TransactionItem[] = [
@@ -30,13 +50,33 @@ export const DummyExpensesList: TransactionItem[] = [
     value: -100,
     id: 3,
     date: '8 აგვ, 2024, 12:20PM',
+    type: 'გადარიცხვები',
+    senderName: 'არჩილი ახვლედიანი',
+    senderAcc: 'GB142334162213317765',
+    senderBank: 'ტერაბანკი',
+    reciever: 'შპს რონის პიცა',
+    recieverAcc: 'GB142334162213317765',
+    recieverBank: 'ტერაბანკი',
+    payType: 'გადახდა',
+    description: 'გადახდა',
+    docNumber: '12344321321',
   },
   {
-    name: 'მანქანის დაზღვევა',
-    category: 'ფინანსები',
+    name: 'პირადი გადარიცხვა',
+    category: 'პირადი გადარიცხვა',
     value: -500,
     id: 4,
     date: '9 სექ, 2024, 12:20PM',
+    type: 'გადარიცხვები',
+    senderName: 'არჩილი ახვლედიანი',
+    senderAcc: 'GB142334162213317765',
+    senderBank: 'ტერაბანკი',
+    reciever: 'ნიკა ჭეიშვილი',
+    recieverAcc: 'GB142334162213317765',
+    recieverBank: 'ტერაბანკი',
+    payType: 'პირადი გადარიცხვა',
+    description: 'პირადი გადარიცხვა',
+    docNumber: '12344321321',
   },
 ];
 
@@ -59,11 +99,13 @@ export const DummyCategories = [
   },
 ];
 
-export const getCategoryImage = (category: string) => {
-  const foundCategory = DummyCategories.find(
-    item => item.category === category,
-  );
-  return foundCategory
-    ? foundCategory.img
-    : 'https://img.icons8.com/?size=100&id=dF4LRqsPnaM1&format=png&color=000000';
-};
+export const DummyType = [
+  {
+    type: 'შემოსავლები',
+    img: 'https://img.icons8.com/?size=100&id=36950&format=png&color=000000',
+  },
+  {
+    type: 'გადარიცხვები',
+    img: 'https://img.icons8.com/?size=100&id=vQWjdsqdjUIf&format=png&color=000000',
+  },
+];
