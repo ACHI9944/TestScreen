@@ -1,43 +1,52 @@
-import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import MainScreen from '../screens/mainScreen';
-import MyFinances from '../screens/myFinances';
-import {RootStackParamList} from './types';
-import ImageIconComponent from '../components/imageIconComponent';
-import SingleDetailedTransaction from '../screens/SingleDetailedTransaction';
-const src =
-  'https://img.icons8.com/?size=100&id=Su0viqkUpIfe&format=png&color=000000';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import TabMainScreen from './TabMainscreen';
+import TabMyFinances from './TabMyFinances';
+import {RootTabParamList} from './types';
+import {Image} from 'react-native';
+const homeUri =
+  'https://img.icons8.com/?size=100&id=73&format=png&color=000000';
+const financesUri =
+  'https://img.icons8.com/?size=100&id=484&format=png&color=000000';
 
 const Router = () => {
-  const Stack = createNativeStackNavigator<RootStackParamList>();
+  const {Navigator, Screen} = createBottomTabNavigator<RootTabParamList>();
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerTitleAlign: 'center',
-        headerBackButtonDisplayMode: 'minimal',
-        headerTitleStyle: {fontSize: 15, fontWeight: 'bold'},
-        headerStyle: {backgroundColor: '#f6f6f6'},
-        headerShadowVisible: false,
-      }}>
-      <Stack.Screen
-        name="MainScreen"
-        component={MainScreen}
-        options={{headerTitle: 'მთავარი გვერდი'}}
-      />
-      <Stack.Screen
-        name="MyFinances"
-        component={MyFinances}
+    <Navigator screenOptions={{headerShown: false}}>
+      <Screen
         options={{
-          headerTitle: 'ჩემი ფინანსები',
-          headerRight: () => <ImageIconComponent imageuri={src} />,
+          tabBarIcon: ({focused, color, size}) => (
+            <Image
+              style={{
+                width: size,
+                height: size,
+                tintColor: focused ? '#c374a4' : 'black',
+              }}
+              source={{uri: homeUri}}
+            />
+          ),
+          tabBarActiveTintColor: '#c374a4',
         }}
+        name="Main"
+        component={TabMainScreen}
       />
-      <Stack.Screen
-        name="SingleDetailedTransaction"
-        component={SingleDetailedTransaction}
-        options={{headerTitle: 'ტრანზაქციის დეტალები'}}
+      <Screen
+        options={{
+          tabBarIcon: ({focused, color, size}) => (
+            <Image
+              style={{
+                width: size,
+                height: size,
+                tintColor: focused ? '#c374a4' : 'black',
+              }}
+              source={{uri: financesUri}}
+            />
+          ),
+          tabBarActiveTintColor: '#c374a4',
+        }}
+        name="Finances"
+        component={TabMyFinances}
       />
-    </Stack.Navigator>
+    </Navigator>
   );
 };
 export default Router;

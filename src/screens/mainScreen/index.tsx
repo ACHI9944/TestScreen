@@ -8,7 +8,7 @@ const MainScreen = () => {
   const {navigate} = useNavigation<props>();
   return (
     <View style={styles.container}>
-      <Pressable style={styles.button} onPress={() => navigate('MyFinances')}>
+      <Pressable style={styles.button} onPress={() => navigate('Finances')}>
         <Text style={styles.text}>Click To View Finances</Text>
       </Pressable>
     </View>

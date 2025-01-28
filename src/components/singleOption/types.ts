@@ -5,5 +5,4 @@ type OptionItem = {
 
 export type SingleOptionProps = {
   item: OptionItem;
-  index: number;
 };

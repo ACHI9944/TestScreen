@@ -71,7 +71,7 @@ const SingleDetailedTransaction = () => {
       </View>
       <View style={styles.options}>
         {options.map((item, index) => (
-          <SingleOption index={index} item={item} />
+          <SingleOption key={index} item={item} />
         ))}
       </View>
       <View style={styles.listView}>

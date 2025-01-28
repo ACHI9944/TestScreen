@@ -2,9 +2,9 @@ import {Image, Text, View} from 'react-native';
 import {SingleOptionProps} from './types';
 import {styles} from './styles';
 
-const SingleOption = ({item, index}: SingleOptionProps) => {
+const SingleOption = ({item}: SingleOptionProps) => {
   return (
-    <View key={index} style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.subContainer}>
         <Image source={{uri: item.url}} style={styles.image} />
       </View>
